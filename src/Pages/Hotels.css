@@ -1,0 +1,24 @@
+/* Hotels.css */
+.hotel-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transition for transform and shadow */
+  }
+  
+  .hotel-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Change shadow values on hover */
+    transform: translateY(-5px) scale(1.03); /* Apply 3D effect on hover */
+  }
+  
+  /* Button hover effect */
+  .btn-primary {
+    transition: transform 0.3s; /* Transition for button */
+  }
+  
+  .btn-primary:hover {
+    transform: scale(1.1); /* Scale button on hover */
+  }
+  /* Hotels.css */
+.selected-card {
+    background-color: #f0f0f0; /* Change background color for selected card */
+  }
+  

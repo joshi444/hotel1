@@ -1,0 +1,31 @@
+/* Rooms.css */
+
+.rooms-container {
+    background: #6e43c4; /* Background color */
+    color: #fff; /* Text color */
+    min-height: 100vh; /* Adjust the height as needed */
+  }
+  
+  .room-card {
+    background-color: #fff; /* Card background color */
+    color: #333; /* Card text color */
+    transition: transform 0.3s ease;
+  }
+  
+  .room-card:hover {
+    transform: translateY(-5px); /* Card hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card shadow on hover */
+  }
+  
+  .room-card .btn-primary {
+    background-color: #6e43c4; /* Button background color */
+    border-color: #6e43c4; /* Button border color */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .room-card .btn-primary:hover {
+    background-color: #fff; /* Button hover background color */
+    border-color: #6e43c4; /* Button hover border color */
+    color: #6e43c4; /* Button text color on hover */
+  }
+  
