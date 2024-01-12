@@ -38,14 +38,18 @@ function Rooms(props) {
                     <h5 className="card-title">Type: {data.roomType}</h5>
                     <p className="card-text">Price: {data.price}</p>
                     <p className="card-text">Available Rooms: {data.avalaibleRooms}</p>
-                    {userData ? (
-                      <Link to={`/booking/${hotelId}/${data.roomId}`} className="btn btn-primary">
-                        Book
-                      </Link>
+                    {data.avalaibleRooms > 0 ? (
+                      userData ? (
+                        <Link to={`/booking/${hotelId}/${data.roomId}`} className="btn btn-primary">
+                          Book
+                        </Link>
+                      ) : (
+                        <Link to="/login" className="btn btn-primary">
+                          Login to Book
+                        </Link>
+                      )
                     ) : (
-                      <Link to="/login" className="btn btn-primary">
-                        Login to Book
-                      </Link>
+                      <p className="text-danger">No rooms available</p>
                     )}
                   </div>
                 </div>

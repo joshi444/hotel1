@@ -31,7 +31,9 @@ function Hotels() {
       <Navbar />
       <div className="container-fluid">
         <div className="row">
-          <div className="col-lg-9 mt-5">
+          <div className="col-lg-1 mt-5">
+          </div>
+          <div className="col-lg-10 mt-5">
             <input
               type="text"
               placeholder="Search by location..."
@@ -40,6 +42,8 @@ function Hotels() {
               className="form-control mb-3 search-bar" // Added a class for styling
               style={{ background: "#fff", color: "#000", width: "200px" }} // Adjusted width here
             />
+
+
             <div className="row row-cols-1 row-cols-md-3 g-4">
               {filteredHotels.map((data, index) => (
                 <div key={index} className={`col mb-4`}>
@@ -57,6 +61,10 @@ function Hotels() {
                 </div>
               ))}
             </div>
+
+
+          </div>
+          <div className="col-lg-1 mt-5">
           </div>
         </div>
       </div>

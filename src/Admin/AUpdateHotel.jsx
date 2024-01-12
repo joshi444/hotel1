@@ -55,7 +55,7 @@ function AUpdateHotel() {
             ImageUrl: imageUrl
         };
 
-        axios.put(`https://localhost:44397/api/Hotel/${hotelId}`, data)
+        axios.put(`https://localhost:44397/api/Hotel`, data)
             .then(() => {
                 alert("Hotel updated");
                 

@@ -13,6 +13,7 @@ function BookingForm() {
   const [bookingError, setBookingError] = useState(null);
   const user = localStorage.getItem('user');
   const userId = JSON.parse(user).userId;
+  const today = new Date().toISOString().split('T')[0];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,6 +62,7 @@ function BookingForm() {
                 value={checkInDate}
                 onChange={(e) => setCheckInDate(e.target.value)}
                 className="form-control"
+                min={today}
                 required
               />
             </div>
@@ -73,6 +75,7 @@ function BookingForm() {
                 value={checkOutDate}
                 onChange={(e) => setCheckOutDate(e.target.value)}
                 className="form-control"
+                min={checkInDate}
                 required
               />
             </div>
@@ -85,6 +88,7 @@ function BookingForm() {
                 value={numberOfPeople}
                 onChange={(e) => setNumberOfPeople(e.target.value)}
                 className="form-control"
+              
                 required
               />
             </div>

@@ -11,7 +11,12 @@ function UserBooking() {
   const [bookings, setBookings] = useState([]);
   const [hotels, setHotels] = useState({});
   const [rooms, setRooms] = useState({});
-
+  const today = new Date().toISOString().split('T')[0];
+  const isCancelVisible = (checkInDate) => {
+    const checkInDateTime = new Date(checkInDate).getTime();
+    const todayTime = new Date(today).getTime();
+    return checkInDateTime > todayTime;
+  };
   useEffect(() => {
     axios.get(`https://localhost:44397/api/Booking/${id}`)
       .then((response) => {
@@ -166,11 +171,14 @@ function UserBooking() {
                     Download Bill
                   </button>
                 </td>
-                <td>
-                  <button className="btn btn-danger" onClick={() => handleDelete(booking.bookingId)}>
-                    Cancel
-                  </button>
-                </td>
+              
+                {isCancelVisible(booking.checkInDate) ? (
+                  <td>
+                    <button className="btn btn-danger" onClick={() => handleDelete(booking.bookingId)}>
+                      Cancel
+                    </button>
+                  </td>
+)  : (<td></td>)}
               </tr>
             ))}
           </tbody>
