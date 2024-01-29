@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Navbar from "../Components/Navbar";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { message } from "antd";
+import { useSelector, useDispatch } from "react-redux"
+import { authactions } from "../Store";
+
+
 function Login() {
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
- const Navigate = useNavigate();
+  const Navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleLoginChange = (e) => {
     const { name, value } = e.target;
     setLoginData({
@@ -19,8 +24,8 @@ function Login() {
   const openAdmin = () => {
     Navigate("/ahotel", { replace: false });
   };
-  const mainpage= () =>{
-    Navigate('/hotel',{ replace: false })
+  const mainpage = () => {
+    Navigate('/hotel', { replace: false })
   }
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -34,14 +39,14 @@ function Login() {
       if (loginData.email === "admin@gmail.com" && loginData.password === "Admin@123") {
         message.success("login successfully");
         openAdmin();
-       
+
       } else {
         message.success("login successfully");
         mainpage();
-        
-        
+        dispatch(authactions.login())
+
       }
-  
+
 
       // Handle successful login
     } catch (error) {

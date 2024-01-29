@@ -79,13 +79,15 @@ function UserBooking() {
         .then((result) => {
           if (result.status === 200) {
             message.success(`Booking cancelled successfully`);
+            axios.get('https://localhost:44397/api/Booking')
+            .then((res) => {setBookings(res.data)})
           }
         })
         .catch((error) => {
           message.error(error);
         });
     }
-    window.location.reload();
+   // window.location.reload();
   };
 
   const downloadBill = (booking) => {

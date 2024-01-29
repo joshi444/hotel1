@@ -4,14 +4,20 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignInAlt, faSignOutAlt, faAddressBook } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
+import {useDispatch,useSelector} from "react-redux"
 
+import { authactions } from "../Store";
 function Navbar() {
   const user = JSON.parse(localStorage.getItem('user'));
+
+// const user = useSelector(state => state.isauthenticated)
   const Navigate = useNavigate();
+  const dispatch = useDispatch();
   const mainpage = () => {
     Navigate("/login", { replace: false });
   };
   const handleLogout = () => {
+    dispatch(authactions.logout())
     localStorage.removeItem('user');
     mainpage();
     window.location.reload();

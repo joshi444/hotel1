@@ -1,20 +1,19 @@
 import  {render,screen} from "@testing-library/react"
 import { BrowserRouter } from "react-router-dom"
-import Login from "../Pages/Login"
+import  Hotels from '../Pages/Hotels'
 import { Provider } from 'react-redux';
-import store from '../Store/index';
+import store from '../Store';
 
-
-describe("testing login component ",() =>{
-    test("renders login with one button",async () =>{
+describe("testing hotel component ",() =>{
+    test("renders ",async () =>{
         render(
             <Provider store={store}>
             <BrowserRouter>
-        <Login/>
+              <Hotels/>
         </BrowserRouter>
         </Provider>
         )
-        const btn = await screen.findByText("Login", { selector: "button" });
-        expect(btn)
+        const li = await screen.findAllByRole('listitem');
+        expect(li).not.toHaveLength(0);
     })
 }) 
