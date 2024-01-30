@@ -73,13 +73,13 @@ function UserBooking() {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = (bid) => {
     if (window.confirm("Are you sure you want to cancel this booking?")) {
-      axios.delete(`https://localhost:44397/api/Booking/${id}`)
+      axios.delete(`https://localhost:44397/api/Booking/${bid}`)
         .then((result) => {
           if (result.status === 200) {
             message.success(`Booking cancelled successfully`);
-            axios.get('https://localhost:44397/api/Booking')
+            axios.get(`https://localhost:44397/api/Booking/${id}`)
             .then((res) => {setBookings(res.data)})
           }
         })

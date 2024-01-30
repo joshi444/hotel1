@@ -8,9 +8,9 @@ import {useDispatch,useSelector} from "react-redux"
 
 import { authactions } from "../Store";
 function Navbar() {
-  const user = JSON.parse(localStorage.getItem('user'));
+  //const user = JSON.parse(localStorage.getItem('user'));
 
-// const user = useSelector(state => state.isauthenticated)
+const user = useSelector(state => state.isauthenticated)
   const Navigate = useNavigate();
   const dispatch = useDispatch();
   const mainpage = () => {
@@ -20,7 +20,7 @@ function Navbar() {
     dispatch(authactions.logout())
     localStorage.removeItem('user');
     mainpage();
-    window.location.reload();
+  //  window.location.reload();
   };
 
   return (
